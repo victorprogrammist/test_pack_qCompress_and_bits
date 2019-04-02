@@ -1,6 +1,5 @@
 
 #include "pack_bits.h"
-//#include "tls_tools.h"
 
 uint calc_count_bits(u64 v) {
     uint res = 0;
