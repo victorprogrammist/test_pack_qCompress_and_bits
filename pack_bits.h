@@ -1,8 +1,6 @@
 #ifndef PACK_BITS_H
 #define PACK_BITS_H
 
-//#include "defines.h"
-
 #include <cstdint>
 typedef uint64_t u64;
 
