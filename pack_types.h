@@ -33,19 +33,18 @@ struct Pack<std::vector<T>> {
         for (int i = 0; i < sz; ++i)
             use_pack_bits(b, v.at(i));
 
-        //+++del
+        //=== ТЕСТ СРАВНЕНИЯ УПАКОВКИ qCompress ===
         if (b.size_bytes() <= 8) return;
 
         QByteArray bt_raw;
-        for (int i = 0; i < sz; ++i) {
+        for (int i = 0; i < sz; ++i)
             bt_raw.append(QByteArray((char*)&v.at(i), sizeof(T)));
-        }
 
         QByteArray bt = b.get_bytes();
-        QByteArray bt_c = qCompress(bt, 9);
         qDebug() << "raw" << bt_raw.size()
                  << "zip_raw" << qCompress(bt_raw, 9).size()
-                 << "my_conv_to_bits" << bt.size() << "zip_my_conv_to_bits" << bt_c.size();
+                 << "my_conv_to_bits" << bt.size()
+                 << "zip_my_conv_to_bits" << qCompress(bt, 9).size();
         uint a = 5;
     }
 
